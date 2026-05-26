@@ -10,4 +10,8 @@ if (!supabaseUrl || !supabaseUrl.startsWith("http")) {
 
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "placeholder-anon-key";
 
+if (typeof window !== "undefined") {
+  console.log("[Supabase Diagnostics] Active client URL:", supabaseUrl);
+}
+
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
